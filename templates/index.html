@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Farming AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>AgriVision AI</h1>
+            <p>Advanced Crop & Fertilizer Recommendation System</p>
+        </header>
+
+        <main class="dashboard">
+            <div class="card glass-card" onclick="window.location.href='/crop'">
+                <div class="icon">🌾</div>
+                <h2>Crop Prediction</h2>
+                <p>Advanced AI model analyzes your soil nutrients (N, P, K) and climate data to suggest the most
+                    profitable crop.</p>
+                <button class="btn">Predict Crop</button>
+            </div>
+
+            <div class="card glass-card" onclick="window.location.href='/fertilizer'">
+                <div class="icon">🧪</div>
+                <h2>Fertilizer Suggestion</h2>
+                <p>Enhance your soil fertility. Get scientific fertilizer recommendations to improve yield and soil
+                    health.</p>
+                <button class="btn">Predict Fertilizer</button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

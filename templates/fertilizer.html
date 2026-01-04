@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation - AgriVision AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Fertilizer Suggestion</h1>
+            <p>Balanced nutrition for your soil</p>
+        </header>
+
+        <div class="page-layout">
+            <div class="sidebar glass-card">
+                <h2>💡 Instructions</h2>
+                <ul>
+                    <li><strong>Environmental Data</strong>: Enter current temperature, humidity, and moisture levels.
+                    </li>
+                    <li><strong>Soil Type</strong>: Select the texture of your soil (e.g., Sandy, Clayey).</li>
+                    <li><strong>Crop Type</strong>: Select the crop you intend to grow.</li>
+                    <li><strong>Nutrients</strong>: Enter current Nitrogen, Potassium, and Phosphorous levels.</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">The AI will calculate the nutrient gap and suggest the
+                    best fertilizer.</p>
+            </div>
+
+            <div class="main-content form-container glass-card">
+                <form id="fertilizerForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="temperature">Temperature (°C)</label>
+                            <input type="number" id="temperature" name="Temperature" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="humidity">Humidity (%)</label>
+                            <input type="number" id="humidity" name="Humidity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="moisture">Moisture (%)</label>
+                            <input type="number" id="moisture" name="Moisture" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="soil">Soil Type</label>
+                            <select id="soil" name="Soil Type" required>
+                                <option value="Sandy">Sandy</option>
+                                <option value="Loamy">Loamy</option>
+                                <option value="Black">Black</option>
+                                <option value="Red">Red</option>
+                                <option value="Clayey">Clayey</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="crop">Crop Type</label>
+                            <select id="crop" name="Crop Type" required>
+                                <option value="Maize">Maize</option>
+                                <option value="Sugarcane">Sugarcane</option>
+                                <option value="Cotton">Cotton</option>
+                                <option value="Tobacco">Tobacco</option>
+                                <option value="Paddy">Paddy</option>
+                                <option value="Barley">Barley</option>
+                                <option value="Wheat">Wheat</option>
+                                <option value="Millets">Millets</option>
+                                <option value="Oil seeds">Oil seeds</option>
+                                <option value="Pulses">Pulses</option>
+                                <option value="Ground Nuts">Ground Nuts</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="n">Nitrogen (N)</label>
+                            <input type="number" id="n" name="Nitrogen" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="k">Potassium (K)</label>
+                            <input type="number" id="k" name="Potassium" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p">Phosphorous (P)</label>
+                            <input type="number" id="p" name="Phosphorous" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="width: 100%; margin-top: 1.5rem; font-size: 1.1rem;">Predict Best Fertilizer</button>
+                </form>
+
+                <div id="result" class="result"></div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction - AgriVision AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Crop Recommendation</h1>
+            <p>Optimize your harvest with data-driven insights</p>
+        </header>
+
+        <div class="page-layout">
+            <div class="sidebar glass-card">
+                <h2>💡 How to Use</h2>
+                <ul>
+                    <li><strong>Nitrogen (N)</strong>: Ratio of Nitrogen content in soil.</li>
+                    <li><strong>Phosphorous (P)</strong>: Ratio of Phosphorous content in soil.</li>
+                    <li><strong>Potassium (K)</strong>: Ratio of Potassium content in soil.</li>
+                    <li><strong>Temperature</strong>: In degrees Celsius.</li>
+                    <li><strong>Humidity</strong>: Relative humidity in %.</li>
+                    <li><strong>pH</strong>: Soil acidity/alkalinity scale (0-14).</li>
+                    <li><strong>Rainfall</strong>: Annual rainfall in mm.</li>
+                </ul>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">All these parameters are crucial for the AI to find the
+                    perfect match for your land.</p>
+            </div>
+
+            <main class="main-content form-container glass-card">
+                <form id="cropForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="n">Nitrogen (N)</label>
+                            <input type="number" id="n" name="N" required placeholder="e.g., 90">
+                        </div>
+                        <div class="form-group">
+                            <label for="p">Phosphorous (P)</label>
+                            <input type="number" id="p" name="P" required placeholder="e.g., 42">
+                        </div>
+                        <div class="form-group">
+                            <label for="k">Potassium (K)</label>
+                            <input type="number" id="k" name="K" required placeholder="e.g., 43">
+                        </div>
+                        <div class="form-group">
+                            <label for="temperature">Temperature (°C)</label>
+                            <input type="number" step="0.01" id="temperature" name="temperature" required
+                                placeholder="e.g., 20.8">
+                        </div>
+                        <div class="form-group">
+                            <label for="humidity">Humidity (%)</label>
+                            <input type="number" step="0.01" id="humidity" name="humidity" required
+                                placeholder="e.g., 82.0">
+                        </div>
+                        <div class="form-group">
+                            <label for="ph">pH Level</label>
+                            <input type="number" step="0.01" id="ph" name="ph" required placeholder="e.g., 6.5">
+                        </div>
+                        <div class="form-group">
+                            <label for="rainfall">Rainfall (mm)</label>
+                            <input type="number" step="0.01" id="rainfall" name="rainfall" required
+                                placeholder="e.g., 202.9">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="width: 100%; margin-top: 1.5rem; font-size: 1.1rem;">Predict Best Crop</button>
+                </form>
+
+                <div id="result" class="result"></div>
+            </main>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">← Back to Dashboard</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
