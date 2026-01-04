@@ -15,26 +15,49 @@ Unlike standard prediction models that just give a label, AgriVision AI explains
 The system includes a creative "Sanity Check" layer that rejects illogical inputs with scientific context.
 - **Example**: If you enter `Temperature: 100°C`, it replies: *"🌡️ Temperature 100°C is too extreme for agriculture! Most crops die above 50°C."*
 
-### 3. 📊 High-Accuracy Models
-We synthesized a high-quality dataset to train **Random Forest Classifiers**, achieving production-level accuracy.
+### 3. 🧠 Deep Tech Dive: AI & ML Terminology
+This project is built on robust **Supervised Machine Learning** principles. Here's a breakdown of the core technologies:
 
-| Model | Accuracy | Algorithm | Key Features |
-|-------|----------|-----------|--------------|
-| **Crop Prediction** | **99.77%** | Random Forest | N, P, K, Temp, Humidity, pH, Rain |
-| **Fertilizer Prediction** | **96.00%** | Random Forest | N, P, K, Soil Type, Moisture, Temp |
+#### **A. Random Forest Classifier (The Brain)**
+We use the **Random Forest** algorithm, which is an ensemble learning method.
+- **Ensemble Learning**: Instead of relying on one decision tree, we create a "forest" of multiple trees.
+- **Voting Mechanism**: Each tree gives a prediction (vote), and the class with the most votes becomes the model's output.
+- **Why it works**: It reduces overfitting (memorizing data) and improves accuracy compared to a single Decision Tree.
+
+#### **B. Feature Engineering**
+The model doesn't just "guess"; it mathematically correlates input features to outputs.
+- **Inputs (X)**: N, P, K, Temperature, Humidity, pH, Rainfall.
+- **Target (Y)**: Crop Label (e.g., Rice, Maize).
+- **Label Encoding**: Converting text labels (e.g., "Rice") into numbers (e.g., 0) so the machine can understand them.
+
+#### **C. Data Preprocessing**
+- **Synthetic Data Generation**: We created a custom dataset algorithm to simulate realistic agricultural patterns (e.g., Rice requiring high rain, Cotton requiring black soil).
+- **Normalization**: Ensuring all numerical values are on a comparable scale.
+
+#### **D. Model Evaluation Metrics**
+- **Accuracy Score**: The ratio of correctly predicted observations to the total observations.
+  - **Crop Model**: **99.77%**
+  - **Fertilizer Model**: **96.00%**
+- **Confusion Matrix**: Used during training to verify that the model doesn't confuse similar crops (e.g., Muskmelon vs. Watermelon).
+
+#### **E. Input Validation (Sanity Check Layer)**
+A rule-based logic layer that sits before the ML model.
+- **Physical Constraints**: $0 \le Humidity \le 100$.
+- **Chemical Constraints**: $0 \le pH \le 14$.
+- **Biological Limits**: Checks for toxic nutrient levels (e.g., Nitrogen > 200).
 
 ```mermaid
-pie title Crop Model Feature Importance
-    "Rainfall" : 25
-    "Humidity" : 20
-    "Nitrogen (N)" : 15
-    "Phosphorous (P)" : 15
-    "Potassium (K)" : 15
-    "Temperature" : 5
-    "pH" : 5
+graph TD
+    A[User Input] --> B{Validation Layer}
+    B -- Invalid --> C[Return Error]
+    B -- Valid --> D[Feature Scaling]
+    D --> E[Random Forest Model]
+    E --> F[Prediction Label]
+    F --> G[Dynamic Insight Generator]
+    G --> H[Final Response]
 ```
 
-### 4. 🎨 Modern Glassmorphism UI
+### 4. 📊 High-Accuracy Models
 The web interface is built with a translucent, futuristic design system, featuring animated backgrounds and loading states for a premium user experience.
 
 ## 🛠️ Tech Stack
