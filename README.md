@@ -1,4 +1,4 @@
-# 🌾 AgriVision AI - Smart Crop & Fertilizer Recommendation System
+### 🌾 AgriVision AI - Smart Crop & Fertilizer Recommendation System
 
 > **"Farming with Intelligence"**
 
